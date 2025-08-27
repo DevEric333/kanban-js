@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kanban JS – Mini Trello</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <h1>Kanban JS</h1>
+    <div class="actions">
+      <button id="btn-export" class="btn">Exportar JSON</button>
+      <button id="btn-clear" class="btn danger">Limpar Board</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <form id="new-task" class="new-task" autocomplete="off">
+      <input id="task-title" type="text" placeholder="Nova tarefa..." required />
+      <select id="task-column" aria-label="Selecionar coluna">
+        <option value="todo">A Fazer</option>
+        <option value="doing">Fazendo</option>
+        <option value="done">Concluído</option>
+      </select>
+      <button class="btn primary" type="submit">Adicionar</button>
+    </form>
+
+    <section class="board">
+      <div class="column" data-col="todo">
+        <header>
+          <h2>A Fazer</h2>
+          <span class="count" id="count-todo">0</span>
+        </header>
+        <div class="dropzone" id="col-todo"></div>
+      </div>
+
+      <div class="column" data-col="doing">
+        <header>
+          <h2>Fazendo</h2>
+          <span class="count" id="count-doing">0</span>
+        </header>
+        <div class="dropzone" id="col-doing"></div>
+      </div>
+
+      <div class="column" data-col="done">
+        <header>
+          <h2>Concluído</h2>
+          <span class="count" id="count-done">0</span>
+        </header>
+        <div class="dropzone" id="col-done"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>HTML, CSS e JavaScript • Arrastar & Soltar • LocalStorage</small>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
